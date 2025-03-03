@@ -1,4 +1,41 @@
 <script setup>
+  // Récupérer les contenus depuis le plugin
+  const { $contents } = useNuxtApp()
+  
+  // Définir les contenus avec des valeurs par défaut
+  const heroTitle = computed(() => $contents?.hero?.title || "L'art du sourcil parfait")
+  const heroSubtitle = computed(() => $contents?.hero?.subtitle || "Révélez votre beauté naturelle avec nos services de soin des sourcils sur mesure")
+  const heroButton = computed(() => $contents?.hero?.button || "Prendre rendez-vous")
+  
+  const presentationTitle = computed(() => $contents?.presentation?.title || "Bienvenue chez Muse is Browing")
+  const presentationText1 = computed(() => $contents?.presentation?.text1 || "Chez Muse is Browing, nous sommes passionnés par l'art de sublimer votre regard à travers des sourcils parfaitement dessinés et entretenus. Notre salon, situé au cœur de la ville, est un espace dédié à votre beauté et votre bien-être.")
+  const presentationText2 = computed(() => $contents?.presentation?.text2 || "Notre équipe de professionnels qualifiés utilise des techniques modernes et des produits de haute qualité pour vous offrir des résultats exceptionnels qui mettent en valeur vos traits naturels.")
+  const presentationText3 = computed(() => $contents?.presentation?.text3 || "Que vous souhaitiez une restructuration complète, un entretien régulier ou une solution semi-permanente, nous vous proposons un service personnalisé adapté à vos besoins et à votre morphologie.")
+  
+  const prestationsTitle = computed(() => $contents?.prestations?.title || "Nos Prestations et Tarifs")
+  
+  const faqTitle = computed(() => $contents?.faq?.title || "Questions Fréquentes")
+  const faqQuestions = computed(() => $contents?.faq?.questions || [
+    { question: "Combien de temps dure une séance ?", answer: "La durée varie selon le service choisi. Une restructuration simple prend environ 30 minutes, tandis qu'un microblading peut durer jusqu'à 2 heures pour la première séance." },
+    { question: "À quelle fréquence dois-je entretenir mes sourcils ?", answer: "Pour un entretien optimal, nous recommandons une visite toutes les 4 à 6 semaines. Cela peut varier selon la vitesse de repousse de vos poils et le résultat souhaité." },
+    { question: "Le microblading est-il douloureux ?", answer: "Nous appliquons une crème anesthésiante avant la procédure pour minimiser l'inconfort. La plupart des clients décrivent une sensation de légère pression plutôt qu'une douleur vive." },
+    { question: "Comment prendre soin de mes sourcils après une séance ?", answer: "Nous vous fournirons des instructions détaillées selon le service reçu. En général, il est recommandé d'éviter l'eau, les produits cosmétiques et l'exposition au soleil pendant les premières 24-48 heures." },
+    { question: "Proposez-vous des consultations gratuites ?", answer: "Oui, nous offrons une consultation gratuite de 15 minutes pour discuter de vos attentes et vous recommander les services les plus adaptés à votre visage et à vos besoins." }
+  ])
+  
+  const testimonialTitle = computed(() => $contents?.testimonial?.title || "Ce que nos clients disent")
+  const testimonials = computed(() => $contents?.testimonial?.items || [
+    { name: "Marie L.", text: "J'ai enfin trouvé LA spécialiste des sourcils ! Sophie a su exactement comment restructurer mes sourcils pour mettre en valeur mon regard. Je ne vais nulle part ailleurs maintenant !", rating: 5 },
+    { name: "Isabelle D.", text: "Le microblading réalisé chez Muse is Browing a changé ma vie ! Après avoir perdu mes sourcils suite à une chimiothérapie, j'ai retrouvé confiance en moi. Merci infiniment pour votre professionnalisme et votre bienveillance.", rating: 5 },
+    { name: "Thomas B.", text: "Ambiance relaxante, personnel attentif et résultat impeccable. La lamination a donné du volume à mes sourcils clairsemés. Je recommande vivement !", rating: 5 }
+  ])
+  
+  const contactTitle = computed(() => $contents?.contact?.title || "Contactez-nous")
+  const contactAddress = computed(() => $contents?.contact?.address || "15 Rue des Beaux Arts\n75006 Paris")
+  const contactPhone = computed(() => $contents?.contact?.phone || "01 23 45 67 89")
+  const contactEmail = computed(() => $contents?.contact?.email || "contact@browbeauty.fr")
+  const contactHours = computed(() => $contents?.contact?.hours || "Lundi - Vendredi: 10h - 19h\nSamedi: 10h - 18h\nDimanche: Fermé")
+  
   onMounted(() => {
     // Accordion functionality for FAQ section
     const accordionItems = document.querySelectorAll('.accordion-item');
@@ -112,6 +149,13 @@
   <div>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;500;600&display=swap">
+    
+    <!-- Composant NuxtPage pour la gestion des routes -->
+    <NuxtPage v-if="$route.path !== '/'"/>
+    
+    <!-- Contenu principal du site (page d'accueil) -->
+    <div v-if="$route.path === '/'">
+
 
     <header>
       <div class="container">
@@ -155,24 +199,20 @@
 
     <section class="hero">
       <div class="container">
-        <h2>L'art du sourcil parfait</h2>
-        <p>Révélez votre beauté naturelle avec nos services de soin des sourcils sur mesure</p>
-        <a href="#contact" class="btn">Prendre rendez-vous</a>
+        <h2>{{ heroTitle }}</h2>
+        <p>{{ heroSubtitle }}</p>
+        <a href="#contact" class="btn">{{ heroButton }}</a>
       </div>
     </section>
 
     <section id="presentation" class="presentation">
       <div class="container">
-        <h2>Bienvenue chez Muse is Browing</h2>
+        <h2>{{ presentationTitle }}</h2>
         <div class="presentation-content">
           <div class="presentation-text">
-            <p>Chez Muse is Browing, nous sommes passionnés par l'art de sublimer votre regard à travers des sourcils
-              parfaitement dessinés et entretenus. Notre salon, situé au cœur de la ville, est un espace dédié à votre
-              beauté et votre bien-être.</p>
-            <p>Notre équipe de professionnels qualifiés utilise des techniques modernes et des produits de haute qualité
-              pour vous offrir des résultats exceptionnels qui mettent en valeur vos traits naturels.</p>
-            <p>Que vous souhaitiez une restructuration complète, un entretien régulier ou une solution semi-permanente,
-              nous vous proposons un service personnalisé adapté à vos besoins et à votre morphologie.</p>
+            <p>{{ presentationText1 }}</p>
+            <p>{{ presentationText2 }}</p>
+            <p>{{ presentationText3 }}</p>
           </div>
           <div class="presentation-image">
             <img src="/assets/images/salon.jpg" alt="Intérieur du salon Muse is Browing">
@@ -183,7 +223,7 @@
 
     <section id="prestations" class="prestations">
       <div class="container">
-        <h2>Nos Prestations et Tarifs</h2>
+        <h2>{{ prestationsTitle }}</h2>
         <div class="services-grid">
           <div class="service-card">
             <div class="service-icon"><i class="fas fa-pencil-alt"></i></div>
@@ -227,42 +267,12 @@
 
     <section id="faq" class="faq">
       <div class="container">
-        <h2>Questions Fréquentes</h2>
+        <h2>{{ faqTitle }}</h2>
         <div class="accordion">
-          <div class="accordion-item">
-            <div class="accordion-header">Combien de temps dure une séance ?</div>
+          <div v-for="(item, index) in faqQuestions" :key="index" class="accordion-item">
+            <div class="accordion-header">{{ item.question }}</div>
             <div class="accordion-content">
-              <p>La durée varie selon le service choisi. Une restructuration simple prend environ 30 minutes, tandis
-                qu'un microblading peut durer jusqu'à 2 heures pour la première séance.</p>
-            </div>
-          </div>
-          <div class="accordion-item">
-            <div class="accordion-header">À quelle fréquence dois-je entretenir mes sourcils ?</div>
-            <div class="accordion-content">
-              <p>Pour un entretien optimal, nous recommandons une visite toutes les 4 à 6 semaines. Cela peut varier
-                selon la vitesse de repousse de vos poils et le résultat souhaité.</p>
-            </div>
-          </div>
-          <div class="accordion-item">
-            <div class="accordion-header">Le microblading est-il douloureux ?</div>
-            <div class="accordion-content">
-              <p>Nous appliquons une crème anesthésiante avant la procédure pour minimiser l'inconfort. La plupart des
-                clients décrivent une sensation de légère pression plutôt qu'une douleur vive.</p>
-            </div>
-          </div>
-          <div class="accordion-item">
-            <div class="accordion-header">Comment prendre soin de mes sourcils après une séance ?</div>
-            <div class="accordion-content">
-              <p>Nous vous fournirons des instructions détaillées selon le service reçu. En général, il est recommandé
-                d'éviter l'eau, les produits cosmétiques et l'exposition au soleil pendant les premières 24-48 heures.
-              </p>
-            </div>
-          </div>
-          <div class="accordion-item">
-            <div class="accordion-header">Proposez-vous des consultations gratuites ?</div>
-            <div class="accordion-content">
-              <p>Oui, nous offrons une consultation gratuite de 15 minutes pour discuter de vos attentes et vous
-                recommander les services les plus adaptés à votre visage et à vos besoins.</p>
+              <p>{{ item.answer }}</p>
             </div>
           </div>
         </div>
@@ -271,7 +281,7 @@
 
     <section id="avis" class="testimonials">
       <div class="container">
-        <h2>Ce que nos clients disent</h2>
+        <h2>{{ testimonialTitle }}</h2>
         <div class="google-rating">
           <div class="stars">
             <i class="fas fa-star"></i>
@@ -284,60 +294,16 @@
           <a href="#" class="google-link">Voir tous les avis sur Google <i class="fab fa-google"></i></a>
         </div>
         <div class="testimonial-slider">
-          <div class="testimonial">
+          <div v-for="(testimonial, index) in testimonials" :key="index" class="testimonial">
             <div class="testimonial-content">
-              <p>"J'ai enfin trouvé LA spécialiste des sourcils ! Sophie a su exactement comment restructurer mes
-                sourcils pour mettre en valeur mon regard. Je ne vais nulle part ailleurs maintenant !"</p>
+              <p>"{{ testimonial.text }}"</p>
             </div>
             <div class="testimonial-author">
-              <img src="/assets/images/salon.jpg" alt="Marie L.">
+              <img src="/assets/images/salon.jpg" :alt="testimonial.name">
               <div>
-                <h4>Marie L.</h4>
+                <h4>{{ testimonial.name }}</h4>
                 <div class="stars">
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="testimonial">
-            <div class="testimonial-content">
-              <p>"Le microblading réalisé chez Muse is Browing a changé ma vie ! Après avoir perdu mes sourcils suite à
-                une chimiothérapie, j'ai retrouvé confiance en moi. Merci infiniment pour votre professionnalisme et
-                votre bienveillance."</p>
-            </div>
-            <div class="testimonial-author">
-              <img src="/assets/images/salon.jpg" alt="Isabelle D.">
-              <div>
-                <h4>Isabelle D.</h4>
-                <div class="stars">
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="testimonial">
-            <div class="testimonial-content">
-              <p>"Ambiance relaxante, personnel attentif et résultat impeccable. La lamination a donné du volume à mes
-                sourcils clairsemés. Je recommande vivement !"</p>
-            </div>
-            <div class="testimonial-author">
-              <img src="/assets/images/salon.jpg" alt="Thomas B.">
-              <div>
-                <h4>Thomas B.</h4>
-                <div class="stars">
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
+                  <i v-for="star in testimonial.rating" :key="star" class="fas fa-star"></i>
                 </div>
               </div>
             </div>
@@ -348,35 +314,35 @@
 
     <section id="contact" class="contact">
       <div class="container">
-        <h2>Contactez-nous</h2>
+        <h2>{{ contactTitle }}</h2>
         <div class="contact-content">
           <div class="contact-info">
             <div class="info-item">
               <i class="fas fa-map-marker-alt"></i>
               <div>
                 <h3>Adresse</h3>
-                <p>15 Rue des Beaux Arts<br>75006 Paris</p>
+                <p v-html="contactAddress.replace(/\n/g, '<br>')" />
               </div>
             </div>
             <div class="info-item">
               <i class="fas fa-phone-alt"></i>
               <div>
                 <h3>Téléphone</h3>
-                <p>01 23 45 67 89</p>
+                <p>{{ contactPhone }}</p>
               </div>
             </div>
             <div class="info-item">
               <i class="fas fa-envelope"></i>
               <div>
                 <h3>Email</h3>
-                <p>contact@browbeauty.fr</p>
+                <p>{{ contactEmail }}</p>
               </div>
             </div>
             <div class="info-item">
               <i class="fas fa-clock"></i>
               <div>
                 <h3>Horaires</h3>
-                <p>Lundi - Vendredi: 10h - 19h<br>Samedi: 10h - 18h<br>Dimanche: Fermé</p>
+                <p v-html="contactHours.replace(/\n/g, '<br>')" />
               </div>
             </div>
             <div class="social-media">
@@ -409,5 +375,6 @@
         </div>
       </div>
     </footer>
+    </div>
   </div>
 </template>
