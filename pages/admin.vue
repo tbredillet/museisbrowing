@@ -40,6 +40,86 @@
 
       <div class="admin-content">
         <div class="section-container">
+          <h2>Images du site</h2>
+          <div class="image-upload-section">
+            <div class="image-preview-container">
+              <h3>Image d'en-tête (header.jpg)</h3>
+              <div class="image-preview">
+                <img :src="'/assets/images/header.jpg?v=' + imageVersions.header" alt="Image d'en-tête">
+              </div>
+              <div class="form-group">
+                <label for="headerImage">Changer l'image (format JPG recommandé)</label>
+                <input type="file" id="headerImage" @change="handleImageChange($event, 'header')" accept="image/jpeg,image/jpg,image/png,image/webp">
+              </div>
+              <button @click="uploadImage('header')" class="btn btn-secondary" :disabled="!imageFiles.header">Télécharger</button>
+              <div v-if="uploadStatus.header" class="upload-status" :class="{ 'status-success': uploadStatus.header.success, 'status-error': !uploadStatus.header.success }">
+                {{ uploadStatus.header.message }}
+              </div>
+            </div>
+
+            <div class="image-preview-container">
+              <h3>Image du salon (salon.jpg)</h3>
+              <div class="image-preview">
+                <img :src="'/assets/images/salon.jpg?v=' + imageVersions.salon" alt="Image du salon">
+              </div>
+              <div class="form-group">
+                <label for="salonImage">Changer l'image (format JPG recommandé)</label>
+                <input type="file" id="salonImage" @change="handleImageChange($event, 'salon')" accept="image/jpeg,image/jpg,image/png,image/webp">
+              </div>
+              <button @click="uploadImage('salon')" class="btn btn-secondary" :disabled="!imageFiles.salon">Télécharger</button>
+              <div v-if="uploadStatus.salon" class="upload-status" :class="{ 'status-success': uploadStatus.salon.success, 'status-error': !uploadStatus.salon.success }">
+                {{ uploadStatus.salon.message }}
+              </div>
+            </div>
+
+            <div class="image-preview-container">
+              <h3>Image client 1 (client1.jpg)</h3>
+              <div class="image-preview">
+                <img :src="'/assets/images/client1.jpg?v=' + imageVersions.client1" alt="Image client 1">
+              </div>
+              <div class="form-group">
+                <label for="client1Image">Changer l'image (format JPG recommandé)</label>
+                <input type="file" id="client1Image" @change="handleImageChange($event, 'client1')" accept="image/jpeg,image/jpg,image/png,image/webp">
+              </div>
+              <button @click="uploadImage('client1')" class="btn btn-secondary" :disabled="!imageFiles.client1">Télécharger</button>
+              <div v-if="uploadStatus.client1" class="upload-status" :class="{ 'status-success': uploadStatus.client1.success, 'status-error': !uploadStatus.client1.success }">
+                {{ uploadStatus.client1.message }}
+              </div>
+            </div>
+
+            <div class="image-preview-container">
+              <h3>Image client 2 (client2.jpg)</h3>
+              <div class="image-preview">
+                <img :src="'/assets/images/client2.jpg?v=' + imageVersions.client2" alt="Image client 2">
+              </div>
+              <div class="form-group">
+                <label for="client2Image">Changer l'image (format JPG recommandé)</label>
+                <input type="file" id="client2Image" @change="handleImageChange($event, 'client2')" accept="image/jpeg,image/jpg,image/png,image/webp">
+              </div>
+              <button @click="uploadImage('client2')" class="btn btn-secondary" :disabled="!imageFiles.client2">Télécharger</button>
+              <div v-if="uploadStatus.client2" class="upload-status" :class="{ 'status-success': uploadStatus.client2.success, 'status-error': !uploadStatus.client2.success }">
+                {{ uploadStatus.client2.message }}
+              </div>
+            </div>
+
+            <div class="image-preview-container">
+              <h3>Image client 3 (client3.jpg)</h3>
+              <div class="image-preview">
+                <img :src="'/assets/images/client3.jpg?v=' + imageVersions.client3" alt="Image client 3">
+              </div>
+              <div class="form-group">
+                <label for="client3Image">Changer l'image (format JPG recommandé)</label>
+                <input type="file" id="client3Image" @change="handleImageChange($event, 'client3')" accept="image/jpeg,image/jpg,image/png,image/webp">
+              </div>
+              <button @click="uploadImage('client3')" class="btn btn-secondary" :disabled="!imageFiles.client3">Télécharger</button>
+              <div v-if="uploadStatus.client3" class="upload-status" :class="{ 'status-success': uploadStatus.client3.success, 'status-error': !uploadStatus.client3.success }">
+                {{ uploadStatus.client3.message }}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="section-container">
           <h2>Section Hero</h2>
           <div class="form-group">
             <label for="heroTitle">Titre</label>
@@ -167,6 +247,31 @@ import { ADMIN_PASSWORD } from '~/utils/constants'
 const isAuthenticated = ref(false)
 const password = ref('')
 const authError = ref('')
+
+// État des images
+const imageFiles = reactive({
+  header: null,
+  salon: null,
+  client1: null,
+  client2: null,
+  client3: null
+})
+
+const imageVersions = reactive({
+  header: Date.now(),
+  salon: Date.now(),
+  client1: Date.now(),
+  client2: Date.now(),
+  client3: Date.now()
+})
+
+const uploadStatus = reactive({
+  header: null,
+  salon: null,
+  client1: null,
+  client2: null,
+  client3: null
+})
 
 // État des contenus
 const contents = reactive({
@@ -338,6 +443,48 @@ const removeTestimonialItem = (index) => {
   contents.testimonial.items.splice(index, 1)
 }
 
+// Fonction pour gérer le changement d'image
+const handleImageChange = (event, type) => {
+  const file = event.target.files[0]
+  if (file) {
+    imageFiles[type] = file
+  }
+}
+
+// Fonction pour télécharger une image
+const uploadImage = async (type) => {
+  if (!imageFiles[type]) return
+  
+  try {
+    const formData = new FormData()
+    formData.append('file', imageFiles[type])
+    
+    const response = await fetch(`/api/admin/upload?type=${type}&password=${ADMIN_PASSWORD}`, {
+      method: 'POST',
+      body: formData
+    })
+    
+    const result = await response.json()
+    uploadStatus[type] = result
+    
+    if (result.success) {
+      // Mettre à jour la version de l'image pour forcer le rechargement
+      imageVersions[type] = Date.now()
+      // Réinitialiser le fichier
+      imageFiles[type] = null
+      // Réinitialiser l'input file
+      const fileInput = document.getElementById(`${type}Image`)
+      if (fileInput) fileInput.value = ''
+    }
+  } catch (error) {
+    console.error(`Erreur lors du téléchargement de l'image ${type}:`, error)
+    uploadStatus[type] = {
+      success: false,
+      message: `Erreur lors du téléchargement de l'image: ${error.message}`
+    }
+  }
+}
+
 // Fonction pour afficher un message de statut
 const showStatus = (message, success) => {
   statusMessage.value = message
@@ -389,6 +536,58 @@ onMounted(() => {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
   gap: 2rem;
+}
+
+.image-upload-section {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.image-preview-container {
+  background-color: white;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.image-preview {
+  width: 100%;
+  height: 200px;
+  margin-bottom: 1rem;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f8f9fa;
+}
+
+.image-preview img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.upload-status {
+  margin-top: 0.5rem;
+  padding: 0.5rem;
+  border-radius: 4px;
+  font-size: 0.875rem;
+}
+
+.status-success {
+  background-color: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+}
+
+.status-error {
+  background-color: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
 }
 
 .section-container {
