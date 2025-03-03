@@ -299,7 +299,7 @@
               <p>"{{ testimonial.text }}"</p>
             </div>
             <div class="testimonial-author">
-              <img src="/assets/images/salon.jpg" :alt="testimonial.name">
+              <img :src="'/assets/images/client' + (index + 1) + '.jpg'" :alt="testimonial.name">
               <div>
                 <h4>{{ testimonial.name }}</h4>
                 <div class="stars">
