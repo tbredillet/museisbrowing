@@ -147,7 +147,7 @@ nav ul {
 nav ul li {
     margin-left: 30px;
     text-align: center;
-    transition: var(--transition);
+    transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     cursor: pointer;
     width: 120px;
 }
@@ -161,6 +161,7 @@ nav ul li a {
     text-align: center;
     width: 100%;
     padding: 5px 0;
+    transition: color 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 nav ul li:hover {
@@ -179,7 +180,7 @@ nav ul li:hover a {
     font-size: 1rem;
     color: var(--primary-color);
     margin-top: 10px;
-    transition: var(--transition);
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 nav ul li:hover .nav-icon {
@@ -190,23 +191,27 @@ nav ul li:hover .nav-icon {
 /* Styles pour les liens actifs */
 nav ul li a.active {
     color: var(--primary-color);
+    transition: color 0.3s ease;
 }
 
 nav ul li a.active .nav-icon {
     color: var(--secondary-color);
     transform: translateY(-2px);
-    animation: pulse 1.5s infinite;
+    animation: pulse 1.8s infinite cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 @keyframes pulse {
     0% {
         transform: translateY(-2px) scale(1);
+        opacity: 1;
     }
     50% {
-        transform: translateY(-2px) scale(1.1);
+        transform: translateY(-2px) scale(1.15);
+        opacity: 0.9;
     }
     100% {
         transform: translateY(-2px) scale(1);
+        opacity: 1;
     }
 }
 
@@ -217,9 +222,11 @@ nav ul li a:after {
     width: 0;
     height: 2px;
     bottom: -5px;
-    left: 0;
+    left: 50%;
+    transform: translateX(-50%);
     background-color: var(--primary-color);
-    transition: var(--transition);
+    transition: width 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    border-radius: 2px;
 }
 
 nav ul li a:hover:after,
