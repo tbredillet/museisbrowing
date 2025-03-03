@@ -142,6 +142,46 @@
     // Check on scroll and initial load
     window.addEventListener('scroll', checkScroll);
     checkScroll();
+    
+    // Fonction pour mettre à jour les liens actifs en fonction de la section visible
+    function updateActiveLinks() {
+      const sections = document.querySelectorAll('section[id]');
+      const navLinks = document.querySelectorAll('nav ul li a');
+      
+      // Obtenir la position de défilement actuelle
+      const scrollPosition = window.scrollY + window.innerHeight / 3;
+      
+      // Supprimer d'abord la classe active de tous les liens
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+      });
+      
+      // Trouver la section actuellement visible
+      let currentSection = null;
+      
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionBottom = sectionTop + section.offsetHeight;
+        
+        if (scrollPosition >= sectionTop && scrollPosition <= sectionBottom) {
+          currentSection = section;
+        }
+      });
+      
+      // Si une section est visible, activer le lien correspondant
+      if (currentSection) {
+        const sectionId = currentSection.getAttribute('id');
+        const activeLink = document.querySelector(`nav ul li a[href="#${sectionId}"]`);
+        
+        if (activeLink) {
+          activeLink.classList.add('active');
+        }
+      }
+    }
+    
+    // Mettre à jour les liens actifs lors du défilement
+    window.addEventListener('scroll', updateActiveLinks);
+    updateActiveLinks();
   })
 </script>
 
