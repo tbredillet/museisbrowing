@@ -27,12 +27,13 @@ export default defineEventHandler(async (event) => {
 
     // Lancer la commande npm run generate
     try {
-      // Exécuter la commande de génération en arrière-plan
-      execPromise('npm run generate')
+      // Exécuter la commande de génération en arrière-plan et redémarrer le serveur avec PM2
+      await execPromise('npm run build')
+      await execPromise('pm2 start ecosystem.config.cjs')
       
       return {
         success: true,
-        message: 'Génération du site lancée avec succès. Ce processus peut prendre quelques minutes.'
+        message: 'Génération du site lancée avec succès et serveur redémarré. Ce processus peut prendre quelques minutes.'
       }
     } catch (error) {
       console.error('Erreur lors de la génération du site:', error)
