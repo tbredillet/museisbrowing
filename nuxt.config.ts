@@ -4,11 +4,14 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   css: ['@/assets/css/style.css'],
   
-  // Configuration pour assurer que les routes API fonctionnent en production
+  // Configuration pour le déploiement
+  ssr: true,
   nitro: {
     preset: 'node-server',
-    routeRules: {
-      '/api/**': { cors: true, headers: { 'access-control-allow-methods': 'GET,POST,PUT,DELETE' } }
-    }
+  },
+  
+  // Assurer que les fichiers statiques sont correctement servis
+  app: {
+    baseURL: '/'
   },
 })
