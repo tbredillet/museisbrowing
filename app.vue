@@ -294,16 +294,49 @@
           <a href="#" class="google-link">Voir tous les avis sur Google <i class="fab fa-google"></i></a>
         </div>
         <div class="testimonial-slider">
-          <div v-for="(testimonial, index) in testimonials" :key="index" class="testimonial">
+          <!-- Témoignage 1 -->
+          <div class="testimonial">
             <div class="testimonial-content">
-              <p>"{{ testimonial.text }}"</p>
+              <p>"{{ testimonials[0].text }}"</p>
             </div>
             <div class="testimonial-author">
-              <img :src="'/assets/images/client' + (index + 1) + '.jpg'" :alt="testimonial.name">
+              <img src="/assets/images/client1.jpg" :alt="testimonials[0].name">
               <div>
-                <h4>{{ testimonial.name }}</h4>
+                <h4>{{ testimonials[0].name }}</h4>
                 <div class="stars">
-                  <i v-for="star in testimonial.rating" :key="star" class="fas fa-star"></i>
+                  <i v-for="star in testimonials[0].rating" :key="star" class="fas fa-star"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Témoignage 2 -->
+          <div class="testimonial">
+            <div class="testimonial-content">
+              <p>"{{ testimonials[1].text }}"</p>
+            </div>
+            <div class="testimonial-author">
+              <img src="/assets/images/client2.jpg" :alt="testimonials[1].name">
+              <div>
+                <h4>{{ testimonials[1].name }}</h4>
+                <div class="stars">
+                  <i v-for="star in testimonials[1].rating" :key="star" class="fas fa-star"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Témoignage 3 -->
+          <div class="testimonial">
+            <div class="testimonial-content">
+              <p>"{{ testimonials[2].text }}"</p>
+            </div>
+            <div class="testimonial-author">
+              <img src="/assets/images/client3.jpg" :alt="testimonials[2].name">
+              <div>
+                <h4>{{ testimonials[2].name }}</h4>
+                <div class="stars">
+                  <i v-for="star in testimonials[2].rating" :key="star" class="fas fa-star"></i>
                 </div>
               </div>
             </div>
