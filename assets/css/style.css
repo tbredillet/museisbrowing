@@ -291,11 +291,23 @@ nav ul li a.active:after {
     text-align: center;
     box-shadow: var(--shadow);
     transition: var(--transition);
+    position: relative;
+    overflow: hidden;
 }
 
 .service-card:hover {
     transform: translateY(-10px);
     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+.service-card {
+    position: relative;
+    overflow: visible;
+}
+
+.cils-image {
+    object-fit: contain;
+    pointer-events: none;
 }
 
 .service-icon {
