@@ -37,6 +37,87 @@
   const contactHours = computed(() => $contents?.contact?.hours || "Lundi - Vendredi: 10h - 19h\nSamedi: 10h - 18h\nDimanche: Fermé")
   
   onMounted(() => {
+    // Gestion des images cils.png aléatoires sur les prestations
+    const serviceCardsForCils = document.querySelectorAll('.service-card');
+    
+    serviceCardsForCils.forEach(card => {
+      // Créer l'image des cils
+      const cilsImg = document.createElement('img');
+      cilsImg.src = '/assets/images/cils.png';
+      cilsImg.classList.add('cils-image');
+      cilsImg.style.display = 'none';
+      card.appendChild(cilsImg);
+      
+      // Variables pour l'animation
+      let animationId = null;
+      let initialX, initialY, initialRotation, initialSize;
+      
+      card.addEventListener('mouseenter', () => {
+        // Générer des positions aléatoires sur toute la carte
+        // Récupérer les dimensions de la carte
+        const cardWidth = card.offsetWidth;
+        const cardHeight = card.offsetHeight;
+        
+        // Position X: n'importe où sur la largeur de la carte (avec marge de 20px)
+        initialX = Math.floor(Math.random() * (cardWidth - 40)) - (cardWidth / 2) + 20;
+        
+        // Position Y: n'importe où sur la hauteur de la carte (avec marge de 20px)
+        initialY = Math.floor(Math.random() * (cardHeight - 40)) - cardHeight + 20;
+        
+        initialRotation = Math.floor(Math.random() * 360); // rotation complète possible
+        initialSize = (Math.floor(Math.random() * 60) + 40) / 100; // entre 0.4 et 1.0
+        
+        // Appliquer les styles directement sur l'image
+        cilsImg.style.position = 'absolute';
+        cilsImg.style.width = '80px';
+        cilsImg.style.height = '80px';
+        cilsImg.style.bottom = '0';
+        cilsImg.style.left = '50%';
+        cilsImg.style.transform = `translate(${initialX}px, ${initialY}px) rotate(${initialRotation}deg) scale(${initialSize})`;
+        cilsImg.style.zIndex = '10';
+        cilsImg.style.display = 'block';
+        cilsImg.style.opacity = '0';
+        cilsImg.style.transition = 'opacity 0.3s ease';
+        
+        // Effet de fondu à l'apparition
+        setTimeout(() => {
+          cilsImg.style.opacity = '0.85';
+        }, 10);
+        
+        // Animation de flottement plus dynamique
+        let time = 0;
+        const animate = () => {
+          time += 0.03;
+          // Mouvements plus amples et plus aléatoires
+          const offsetX = Math.sin(time) * 8 + Math.cos(time * 1.5) * 4;
+          const offsetY = Math.cos(time) * 6 + Math.sin(time * 1.3) * 3;
+          const offsetRotation = Math.sin(time) * 5 + Math.cos(time * 0.7) * 3;
+          // Légère variation de taille pour un effet de respiration
+          const sizeVariation = Math.sin(time * 0.8) * 0.05;
+          
+          cilsImg.style.transform = `translate(${initialX + offsetX}px, ${initialY + offsetY}px) rotate(${initialRotation + offsetRotation}deg) scale(${initialSize + sizeVariation})`;
+          
+          animationId = requestAnimationFrame(animate);
+        };
+        
+        animate();
+      });
+      
+      // Réinitialiser lorsque la souris quitte la carte
+      card.addEventListener('mouseleave', () => {
+        if (animationId) {
+          cancelAnimationFrame(animationId);
+          animationId = null;
+        }
+        
+        // Effet de fondu à la disparition
+        cilsImg.style.opacity = '0';
+        setTimeout(() => {
+          cilsImg.style.display = 'none';
+        }, 300);
+      });
+    });
+    
     // Accordion functionality for FAQ section
     const accordionItems = document.querySelectorAll('.accordion-item');
     
