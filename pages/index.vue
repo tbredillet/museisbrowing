@@ -37,6 +37,33 @@
   const contactHours = computed(() => $contents?.contact?.hours || "Lundi - Vendredi: 10h - 19h\nSamedi: 10h - 18h\nDimanche: Fermé")
   
   onMounted(() => {
+    // Gestion du menu mobile
+    const menuToggle = document.querySelector('.menu-toggle');
+    const nav = document.querySelector('nav');
+    const overlay = document.querySelector('.overlay');
+    const mobileNavLinks = document.querySelectorAll('nav ul li a');
+    
+    // Fonction pour basculer le menu
+    const toggleMenu = () => {
+      menuToggle.classList.toggle('active');
+      nav.classList.toggle('active');
+      overlay.classList.toggle('active');
+      document.body.classList.toggle('menu-open');
+    };
+    
+    // Ajouter les écouteurs d'événements
+    menuToggle.addEventListener('click', toggleMenu);
+    overlay.addEventListener('click', toggleMenu);
+    
+    // Fermer le menu quand on clique sur un lien
+    mobileNavLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        if (nav.classList.contains('active')) {
+          toggleMenu();
+        }
+      });
+    });
+    
     // Gestion des images cils.png aléatoires sur les prestations
     const serviceCardsForCils = document.querySelectorAll('.service-card');
     
@@ -278,6 +305,7 @@
     <div v-if="$route.path === '/'">
 
 
+    <div class="overlay"></div>
     <header>
       <div class="container">
         <div class="logo">
@@ -285,6 +313,11 @@
             <h1>Muse is Browing</h1>
             <p>Salon de Sourcils</p>
           </a>
+        </div>
+        <div class="menu-toggle">
+          <span></span>
+          <span></span>
+          <span></span>
         </div>
         <nav>
           <ul>
@@ -320,7 +353,7 @@
 
     <section class="hero">
       <div class="container">
-        <h2>{{ heroTitle }}</h2>
+        <h2 class="hero-title">{{ heroTitle }}</h2>
         <p>{{ heroSubtitle }}</p>
         <a href="#contact" class="btn">{{ heroButton }}</a>
       </div>
