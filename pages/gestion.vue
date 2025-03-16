@@ -45,7 +45,7 @@
             <div class="image-preview-container">
               <h3>Image d'en-tête (header.jpg)</h3>
               <div class="image-preview">
-                <img :src="'/assets/images/header.jpg?v=' + imageVersions.header" alt="Image d'en-tête">
+                <img :src="'/public/assets/images/header.jpg?v=' + imageVersions.header" alt="Image d'en-tête">
               </div>
               <div class="form-group">
                 <label for="headerImage">Changer l'image (format JPG recommandé)</label>
@@ -60,7 +60,7 @@
             <div class="image-preview-container">
               <h3>Image du salon (salon.jpg)</h3>
               <div class="image-preview">
-                <img :src="'/assets/images/salon.jpg?v=' + imageVersions.salon" alt="Image du salon">
+                <img :src="'/public/assets/images/salon.jpg?v=' + imageVersions.salon" alt="Image du salon">
               </div>
               <div class="form-group">
                 <label for="salonImage">Changer l'image (format JPG recommandé)</label>
@@ -75,7 +75,7 @@
             <div class="image-preview-container">
               <h3>Image client 1 (client1.jpg)</h3>
               <div class="image-preview">
-                <img :src="'/assets/images/client1.jpg?v=' + imageVersions.client1" alt="Image client 1">
+                <img :src="'/public/assets/images/client1.jpg?v=' + imageVersions.client1" alt="Image client 1">
               </div>
               <div class="form-group">
                 <label for="client1Image">Changer l'image (format JPG recommandé)</label>
@@ -90,7 +90,7 @@
             <div class="image-preview-container">
               <h3>Image client 2 (client2.jpg)</h3>
               <div class="image-preview">
-                <img :src="'/assets/images/client2.jpg?v=' + imageVersions.client2" alt="Image client 2">
+                <img :src="'/public/assets/images/client2.jpg?v=' + imageVersions.client2" alt="Image client 2">
               </div>
               <div class="form-group">
                 <label for="client2Image">Changer l'image (format JPG recommandé)</label>
@@ -105,7 +105,7 @@
             <div class="image-preview-container">
               <h3>Image client 3 (client3.jpg)</h3>
               <div class="image-preview">
-                <img :src="'/assets/images/client3.jpg?v=' + imageVersions.client3" alt="Image client 3">
+                <img :src="'/public/assets/images/client3.jpg?v=' + imageVersions.client3" alt="Image client 3">
               </div>
               <div class="form-group">
                 <label for="client3Image">Changer l'image (format JPG recommandé)</label>
