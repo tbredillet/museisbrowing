@@ -369,7 +369,7 @@
             <p>{{ presentationText3 }}</p>
           </div>
           <div class="presentation-image">
-            <img src="/assets/images/salon.jpg" alt="Intérieur du salon Muse is Browing">
+            <img src="/public/assets/images/salon.jpg" alt="Intérieur du salon Muse is Browing">
           </div>
         </div>
       </div>
@@ -454,7 +454,7 @@
               <p>"{{ testimonials[0].text }}"</p>
             </div>
             <div class="testimonial-author">
-              <img src="/assets/images/client1.jpg" :alt="testimonials[0].name">
+              <img src="/public/assets/images/client1.jpg" :alt="testimonials[0].name">
               <div>
                 <h4>{{ testimonials[0].name }}</h4>
                 <div class="stars">
@@ -470,7 +470,7 @@
               <p>"{{ testimonials[1].text }}"</p>
             </div>
             <div class="testimonial-author">
-              <img src="/assets/images/client2.jpg" :alt="testimonials[1].name">
+              <img src="/public/assets/images/client2.jpg" :alt="testimonials[1].name">
               <div>
                 <h4>{{ testimonials[1].name }}</h4>
                 <div class="stars">
@@ -486,7 +486,7 @@
               <p>"{{ testimonials[2].text }}"</p>
             </div>
             <div class="testimonial-author">
-              <img src="/assets/images/client3.jpg" :alt="testimonials[2].name">
+              <img src="/public/assets/images/client3.jpg" :alt="testimonials[2].name">
               <div>
                 <h4>{{ testimonials[2].name }}</h4>
                 <div class="stars">
