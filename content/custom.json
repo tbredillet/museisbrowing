@@ -1,14 +1,14 @@
 {
   "hero": {
-    "title": "L'art du sourcil parfait",
+    "title": "Maison du Sourcil",
     "subtitle": "Révélez votre beauté naturelle avec nos services de soin des sourcils sur mesure",
     "button": "Prendre rendez-vous"
   },
   "presentation": {
-    "title": "Bienvenue chez Muse is Browing",
-    "text1": "Chez Muse is Browing, nous sommes passionnés par l'art de sublimer votre regard à travers des sourcils parfaitement dessinés et entretenus. Notre salon, situé au cœur de la ville, est un espace dédié à votre beauté et votre bien-être.",
-    "text2": "Notre équipe de professionnels qualifiés utilise des techniques modernes et des produits de haute qualité pour vous offrir des résultats exceptionnels qui mettent en valeur vos traits naturels.",
-    "text3": "Que vous souhaitiez une restructuration complète, un entretien régulier ou une solution semi-permanente, nous vous proposons un service personnalisé adapté à vos besoins et à votre morphologie."
+    "title": "Bienvenue chez Muse",
+    "text1": "Chez Muse, nous sommes passionnés par l'art de sublimer votre regard à travers des sourcils parfaitement dessinés. Muse a pour mission d’apporter une solution à chaque type de sourcils. Notre salon, situé au cœur de la ville, est un espace dédié à votre beauté et votre bien-être.",
+    "text2": "Les sourcils fins, clairsemés, asymétriques, ondulés, indisciplinés peuvent être domptés à l’aide d’un browlift (permanente des sourcils) et/ou d’une teinture hybride (efficace pour teinter la peau et les poils). ",
+    "text3": "Pour les clientes atteintes d’alopécie ou présentant un manque de pilosité sur la zone sourcilière, le microshading est la meilleure option. Il s’agit d’une technique de maquillage permanent qui permet de créer une zone ombragé qui se font naturellement à la peau. Le rendu est semblable à du maquillage."
   },
   "prestations": {
     "title": "Nos Prestations et Tarifs"
@@ -35,6 +35,10 @@
       {
         "question": "Proposez-vous des consultations gratuites ?",
         "answer": "Oui, nous offrons une consultation gratuite de 15 minutes pour discuter de vos attentes et vous recommander les services les plus adaptés à votre visage et à vos besoins."
+      },
+      {
+        "question": "Nouvelle question",
+        "answer": "Nouvelle réponse"
       }
     ]
   },
@@ -55,14 +59,19 @@
         "name": "Thomas B.",
         "text": "Ambiance relaxante, personnel attentif et résultat impeccable. La lamination a donné du volume à mes sourcils clairsemés. Je recommande vivement !",
         "rating": 5
+      },
+      {
+        "name": "Nouveau client",
+        "text": "Nouveau témoignage",
+        "rating": 5
       }
     ]
   },
   "contact": {
     "title": "Contactez-nous",
     "address": "15 Rue des Beaux Arts\n75006 Paris",
-    "phone": "01 23 45 67 89",
-    "email": "contact@browbeauty.fr",
-    "hours": "Lundi - Vendredi: 10h - 19h\nSamedi: 10h - 18h\nDimanche: Fermé"
+    "phone": "",
+    "email": "",
+    "hours": "Lundi - Vendredi: 9h - 19h\nSamedi: 10h - 18h\nDimanche: Fermé"
   }
 }
