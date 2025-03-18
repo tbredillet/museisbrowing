@@ -1,6 +1,6 @@
 {
   "hero": {
-    "title": "Maison du Sourcil",
+    "title": "Maison du Sourcil ! ",
     "subtitle": "Révélez votre beauté naturelle avec nos services de soin des sourcils sur mesure",
     "button": "Prendre rendez-vous"
   },
@@ -11,7 +11,15 @@
     "text3": "Pour les clientes atteintes d’alopécie ou présentant un manque de pilosité sur la zone sourcilière, le microshading est la meilleure option. Il s’agit d’une technique de maquillage permanent qui permet de créer une zone ombragé qui se font naturellement à la peau. Le rendu est semblable à du maquillage."
   },
   "prestations": {
-    "title": "Nos Prestations et Tarifs"
+    "title": "Nos Prestations et Tarifs",
+    "items": [
+      {
+        "title": "Restructuration des Sourcils",
+        "description": "Redéfinition complète de la ligne des sourcils selon votre morphologie",
+        "price": "35€",
+        "duration": "30 min"
+      }
+    ]
   },
   "faq": {
     "title": "Questions Fréquentes",
