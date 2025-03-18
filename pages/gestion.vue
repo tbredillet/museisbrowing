@@ -155,6 +155,28 @@
             <label for="prestationsTitle">Titre</label>
             <input type="text" id="prestationsTitle" v-model="contents.prestations.title" />
           </div>
+          
+          <div v-for="(prestation, index) in contents.prestations.items" :key="index" class="prestation-item">
+            <div class="form-group">
+              <label :for="'prestationTitle' + index">Titre de la prestation {{ index + 1 }}</label>
+              <input type="text" :id="'prestationTitle' + index" v-model="prestation.title" />
+            </div>
+            <div class="form-group">
+              <label :for="'prestationDescription' + index">Description {{ index + 1 }}</label>
+              <textarea :id="'prestationDescription' + index" v-model="prestation.description" rows="3"></textarea>
+            </div>
+            <div class="form-group">
+              <label :for="'prestationPrice' + index">Prix {{ index + 1 }}</label>
+              <input type="text" :id="'prestationPrice' + index" v-model="prestation.price" />
+            </div>
+            <div class="form-group">
+              <label :for="'prestationDuration' + index">Durée {{ index + 1 }}</label>
+              <input type="text" :id="'prestationDuration' + index" v-model="prestation.duration" />
+            </div>
+            <button @click="removePrestationItem(index)" class="btn btn-small btn-danger">Supprimer</button>
+          </div>
+          
+          <button @click="addPrestationItem" class="btn btn-small btn-secondary">Ajouter une prestation</button>
         </div>
 
         <div class="section-container">
@@ -281,7 +303,8 @@ const contents = reactive({
     text3: ''
   },
   prestations: {
-    title: ''
+    title: '',
+    items: []
   },
   faq: {
     title: '',
@@ -475,6 +498,20 @@ const showStatus = (message, success) => {
   setTimeout(() => {
     statusMessage.value = ''
   }, 5000)
+}
+
+// Fonctions pour gérer les prestations
+const addPrestationItem = () => {
+  contents.prestations.items.push({
+    title: 'Nouvelle prestation',
+    description: 'Description de la prestation',
+    price: '0€',
+    duration: '30 min'
+  })
+}
+
+const removePrestationItem = (index) => {
+  contents.prestations.items.splice(index, 1)
 }
 
 // Charger les contenus au montage si authentifié
@@ -683,6 +720,14 @@ input, textarea {
 .error-message {
   color: #dc3545;
   margin-top: 0.5rem;
+}
+
+.prestation-item {
+  border: 1px solid #ced4da;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 4px;
+  background-color: white;
 }
 
 @media (max-width: 768px) {

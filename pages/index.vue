@@ -65,7 +65,7 @@
     });
     
     // Gestion des images cils.png aléatoires sur les prestations
-    const serviceCardsForCils = document.querySelectorAll('.service-card');
+    const serviceCardsForCils = document.querySelectorAll('.prestation-card');
     
     serviceCardsForCils.forEach(card => {
       // Créer l'image des cils
@@ -375,45 +375,20 @@
       </div>
     </section>
 
-    <section id="prestations" class="prestations">
+    <section id="prestations" class="prestations-section">
       <div class="container">
         <h2>{{ prestationsTitle }}</h2>
-        <div class="services-grid">
-          <div class="service-card">
-            <div class="service-icon"><i class="fas fa-pencil-alt"></i></div>
-            <h3>Restructuration des Sourcils</h3>
-            <p>Redéfinition complète de la ligne des sourcils selon votre morphologie</p>
-            <div class="price">35€</div>
-          </div>
-          <div class="service-card">
-            <div class="service-icon"><i class="fas fa-paint-brush"></i></div>
-            <h3>Teinture des Sourcils</h3>
-            <p>Coloration adaptée à votre teint pour un regard plus intense</p>
-            <div class="price">25€</div>
-          </div>
-          <div class="service-card">
-            <div class="service-icon"><i class="fas fa-feather"></i></div>
-            <h3>Épilation au Fil</h3>
-            <p>Technique précise pour une finition impeccable</p>
-            <div class="price">20€</div>
-          </div>
-          <div class="service-card">
-            <div class="service-icon"><i class="fas fa-magic"></i></div>
-            <h3>Microblading</h3>
-            <p>Technique semi-permanente pour des sourcils parfaits jusqu'à 18 mois</p>
-            <div class="price">180€</div>
-          </div>
-          <div class="service-card">
-            <div class="service-icon"><i class="fas fa-spa"></i></div>
-            <h3>Brow Lamination</h3>
-            <p>Lissage et mise en forme pour des sourcils disciplinés</p>
-            <div class="price">60€</div>
-          </div>
-          <div class="service-card">
-            <div class="service-icon"><i class="fas fa-gem"></i></div>
-            <h3>Forfait Complet</h3>
-            <p>Restructuration + Teinture + Soin nourrissant</p>
-            <div class="price">55€</div>
+        
+        <div class="prestations-grid">
+          <div v-for="(prestation, index) in $contents.prestations.items" 
+               :key="index" 
+               class="prestation-card">
+            <h3>{{ prestation.title }}</h3>
+            <p class="prestation-description">{{ prestation.description }}</p>
+            <div class="prestation-details">
+              <span class="prestation-price">{{ prestation.price }}</span>
+              <span class="prestation-duration">{{ prestation.duration }}</span>
+            </div>
           </div>
         </div>
       </div>
@@ -563,3 +538,81 @@
     </div>
   </div>
 </template>
+
+<style scoped>
+.prestations-section {
+  padding: 4rem 0;
+  background-color: #f8f9fa;
+}
+
+.prestations-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.prestation-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.prestation-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.prestation-card h3 {
+  color: #333;
+  font-family: 'Playfair Display', serif;
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+}
+
+.prestation-description {
+  margin: 1rem 0;
+  color: #6c757d;
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+.prestation-details {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid #eee;
+}
+
+.prestation-price {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: #9f7a2e;
+  font-family: 'Playfair Display', serif;
+}
+
+.prestation-duration {
+  color: #6c757d;
+  font-size: 0.9rem;
+  background: #f8f9fa;
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+}
+
+@media (max-width: 768px) {
+  .prestations-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .prestation-card {
+    padding: 1.5rem;
+  }
+}
+</style>
