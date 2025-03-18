@@ -28,8 +28,7 @@ export default defineEventHandler(async (event) => {
     // Lancer la commande npm run generate
     try {
       // Exécuter la commande de génération en arrière-plan et redémarrer le serveur avec PM2
-      await execPromise('npm run build')
-      await execPromise('pm2 start ecosystem.config.cjs')
+      await execPromise('npm run build && /usr/local/bin/pm2 restart /var/www/museisbrowing/ecosystem.config.cjs')
       
       return {
         success: true,
