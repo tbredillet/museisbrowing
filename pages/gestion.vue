@@ -26,12 +26,6 @@
         <button @click="generateSite" class="btn btn-secondary" :disabled="isGenerating">
           {{ isGenerating ? 'Génération en cours...' : 'Générer le site' }}
         </button>
-        <button @click="resetToDefault" class="btn btn-danger">
-          Réinitialiser aux valeurs par défaut
-        </button>
-        <button @click="logout" class="btn btn-outline">
-          Déconnexion
-        </button>
       </div>
 
       <div v-if="statusMessage" class="status-message" :class="{ 'status-success': statusSuccess, 'status-error': !statusSuccess }">
@@ -323,12 +317,6 @@ const authenticate = () => {
   }
 }
 
-// Fonction de déconnexion
-const logout = () => {
-  isAuthenticated.value = false
-  password.value = ''
-}
-
 // Fonction pour charger les contenus
 const loadContents = async () => {
   try {
@@ -408,13 +396,6 @@ const generateSite = async () => {
     showStatus('Erreur lors de la génération du site', false)
   } finally {
     isGenerating.value = false
-  }
-}
-
-// Fonction pour réinitialiser aux valeurs par défaut
-const resetToDefault = async () => {
-  if (confirm('Êtes-vous sûr de vouloir réinitialiser tous les contenus aux valeurs par défaut ?')) {
-    loadContents()
   }
 }
 
