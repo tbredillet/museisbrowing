@@ -543,9 +543,7 @@
           </div>
         </div>
         <div class="map-container">
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2625.2758592175266!2d2.3331544!3d48.8534951!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e671d9f7f8b3d1%3A0x5720ac519f7d503a!2s15%20Rue%20des%20Beaux%20Arts%2C%2075006%20Paris!5e0!3m2!1sfr!2sfr!4v1646000000000!5m2!1sfr!2sfr"
-            width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14549.388734203081!2d5.543913302186859!3d46.67507846018469!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x478cd7ac2387393d%3A0xe5ff27c496e38979!2sMUSE!5e0!3m2!1sfr!2sfr!4v1742309728986!5m2!1sfr!2sfr" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
       </div>
     </section>
