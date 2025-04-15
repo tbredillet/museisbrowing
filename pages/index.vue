@@ -3,38 +3,28 @@
   const { $contents } = useNuxtApp()
   
   // Définir les contenus avec des valeurs par défaut
-  const heroTitle = computed(() => $contents?.hero?.title || "L'art du sourcil parfait")
-  const heroSubtitle = computed(() => $contents?.hero?.subtitle || "Révélez votre beauté naturelle avec nos services de soin des sourcils sur mesure")
-  const heroButton = computed(() => $contents?.hero?.button || "Prendre rendez-vous")
+  const heroTitle = computed(() => $contents?.hero?.title || "")
+  const heroSubtitle = computed(() => $contents?.hero?.subtitle || "")
+  const heroButton = computed(() => $contents?.hero?.button || "")
   
-  const presentationTitle = computed(() => $contents?.presentation?.title || "Bienvenue chez Muse is Browing")
-  const presentationText1 = computed(() => $contents?.presentation?.text1 || "Chez Muse is Browing, nous sommes passionnés par l'art de sublimer votre regard à travers des sourcils parfaitement dessinés et entretenus. Notre salon, situé au cœur de la ville, est un espace dédié à votre beauté et votre bien-être.")
-  const presentationText2 = computed(() => $contents?.presentation?.text2 || "Notre équipe de professionnels qualifiés utilise des techniques modernes et des produits de haute qualité pour vous offrir des résultats exceptionnels qui mettent en valeur vos traits naturels.")
-  const presentationText3 = computed(() => $contents?.presentation?.text3 || "Que vous souhaitiez une restructuration complète, un entretien régulier ou une solution semi-permanente, nous vous proposons un service personnalisé adapté à vos besoins et à votre morphologie.")
+  const presentationTitle = computed(() => $contents?.presentation?.title || "")
+  const presentationText1 = computed(() => $contents?.presentation?.text1 || "")
+  const presentationText2 = computed(() => $contents?.presentation?.text2 || "")
+  const presentationText3 = computed(() => $contents?.presentation?.text3 || "")
   
-  const prestationsTitle = computed(() => $contents?.prestations?.title || "Nos Prestations et Tarifs")
+  const prestationsTitle = computed(() => $contents?.prestations?.title || "")
   
-  const faqTitle = computed(() => $contents?.faq?.title || "Questions Fréquentes")
-  const faqQuestions = computed(() => $contents?.faq?.questions || [
-    { question: "Combien de temps dure une séance ?", answer: "La durée varie selon le service choisi. Une restructuration simple prend environ 30 minutes, tandis qu'un microblading peut durer jusqu'à 2 heures pour la première séance." },
-    { question: "À quelle fréquence dois-je entretenir mes sourcils ?", answer: "Pour un entretien optimal, nous recommandons une visite toutes les 4 à 6 semaines. Cela peut varier selon la vitesse de repousse de vos poils et le résultat souhaité." },
-    { question: "Le microblading est-il douloureux ?", answer: "Nous appliquons une crème anesthésiante avant la procédure pour minimiser l'inconfort. La plupart des clients décrivent une sensation de légère pression plutôt qu'une douleur vive." },
-    { question: "Comment prendre soin de mes sourcils après une séance ?", answer: "Nous vous fournirons des instructions détaillées selon le service reçu. En général, il est recommandé d'éviter l'eau, les produits cosmétiques et l'exposition au soleil pendant les premières 24-48 heures." },
-    { question: "Proposez-vous des consultations gratuites ?", answer: "Oui, nous offrons une consultation gratuite de 15 minutes pour discuter de vos attentes et vous recommander les services les plus adaptés à votre visage et à vos besoins." }
-  ])
+  const faqTitle = computed(() => $contents?.faq?.title || "")
+  const faqQuestions = computed(() => $contents?.faq?.questions || [])
   
-  const testimonialTitle = computed(() => $contents?.testimonial?.title || "Ce que nos clients disent")
-  const testimonials = computed(() => $contents?.testimonial?.items || [
-    { name: "Marie L.", text: "J'ai enfin trouvé LA spécialiste des sourcils ! Sophie a su exactement comment restructurer mes sourcils pour mettre en valeur mon regard. Je ne vais nulle part ailleurs maintenant !", rating: 5 },
-    { name: "Isabelle D.", text: "Le microblading réalisé chez Muse is Browing a changé ma vie ! Après avoir perdu mes sourcils suite à une chimiothérapie, j'ai retrouvé confiance en moi. Merci infiniment pour votre professionnalisme et votre bienveillance.", rating: 5 },
-    { name: "Thomas B.", text: "Ambiance relaxante, personnel attentif et résultat impeccable. La lamination a donné du volume à mes sourcils clairsemés. Je recommande vivement !", rating: 5 }
-  ])
+  const testimonialTitle = computed(() => $contents?.testimonial?.title || "")
+  const testimonials = computed(() => $contents?.testimonial?.items || [])
   
-  const contactTitle = computed(() => $contents?.contact?.title || "Contactez-nous")
-  const contactAddress = computed(() => $contents?.contact?.address || "15 Rue des Beaux Arts\n75006 Paris")
-  const contactPhone = computed(() => $contents?.contact?.phone || "01 23 45 67 89")
-  const contactEmail = computed(() => $contents?.contact?.email || "contact@browbeauty.fr")
-  const contactHours = computed(() => $contents?.contact?.hours || "Lundi - Vendredi: 10h - 19h\nSamedi: 10h - 18h\nDimanche: Fermé")
+  const contactTitle = computed(() => $contents?.contact?.title || "")
+  const contactAddress = computed(() => $contents?.contact?.address?.replace(/\n/g, '<br>') || "")
+  const contactPhone = computed(() => $contents?.contact?.phone || "")
+  const contactEmail = computed(() => $contents?.contact?.email || "")
+  const contactHours = computed(() => $contents?.contact?.hours || "")
   
   onMounted(() => {
     // Gestion du menu mobile
@@ -311,7 +301,7 @@
         <div class="logo">
           <a href="#">
             <h1>Muse is Browing</h1>
-            <p>Salon de Sourcils</p>
+            <p>Bar à Sourcils</p>
           </a>
         </div>
         <div class="menu-toggle">
@@ -483,7 +473,7 @@
               <i class="fas fa-map-marker-alt"></i>
               <div>
                 <h3>Adresse</h3>
-                <p v-html="contactAddress.replace(/\n/g, '<br>')" />
+                <p v-html="contactAddress"></p>
               </div>
             </div>
             <div class="info-item">
