@@ -26,6 +26,10 @@
   const contactEmail = computed(() => $contents?.contact?.email || "")
   const contactHours = computed(() => $contents?.contact?.hours || "")
   
+  // Réseaux sociaux
+  const socialTitle = computed(() => $contents?.social?.title || "Suivez-nous")
+  const socialItems = computed(() => $contents?.social?.items || [])
+  
   onMounted(() => {
     // Gestion du menu mobile
     const menuToggle = document.querySelector('.menu-toggle');
@@ -498,11 +502,12 @@
               </div>
             </div>
             <div class="social-media">
-              <h3>Suivez-nous</h3>
+              <h3>{{ socialTitle }}</h3>
               <div class="social-icons">
-                <a href="#"><i class="fab fa-facebook-f"></i></a>
-                <a href="#"><i class="fab fa-instagram"></i></a>
-                <a href="#"><i class="fab fa-pinterest-p"></i></a>
+                <a v-for="(item, index) in socialItems" :key="index" :href="item.url" target="_blank" rel="noopener noreferrer">
+                  <i v-if="item.icon === 'envelope'" class="fas fa-envelope"></i>
+                  <i v-else :class="`fab fa-${item.icon}`"></i>
+                </a>
               </div>
             </div>
           </div>

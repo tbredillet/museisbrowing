@@ -250,6 +250,41 @@
             <textarea id="contactHours" v-model="contents.contact.hours" rows="3"></textarea>
           </div>
         </div>
+
+        <div class="section-container">
+          <h2>Réseaux Sociaux</h2>
+          <div class="form-group">
+            <label for="socialTitle">Titre</label>
+            <input type="text" id="socialTitle" v-model="contents.social.title" />
+          </div>
+          
+          <div v-for="(social, index) in contents.social.items" :key="index" class="social-item">
+            <div class="form-group">
+              <label :for="'socialName' + index">Nom du réseau {{ index + 1 }}</label>
+              <input type="text" :id="'socialName' + index" v-model="social.name" />
+            </div>
+            <div class="form-group">
+              <label :for="'socialUrl' + index">URL {{ index + 1 }}</label>
+              <input type="url" :id="'socialUrl' + index" v-model="social.url" />
+            </div>
+            <div class="form-group">
+              <label :for="'socialIcon' + index">Icône {{ index + 1 }}</label>
+              <select :id="'socialIcon' + index" v-model="social.icon">
+                <option value="facebook">Facebook</option>
+                <option value="instagram">Instagram</option>
+                <option value="twitter">Twitter</option>
+                <option value="linkedin">LinkedIn</option>
+                <option value="youtube">YouTube</option>
+                <option value="tiktok">TikTok</option>
+                <option value="pinterest">Pinterest</option>
+                <option value="link">Lien générique</option>
+              </select>
+            </div>
+            <button @click="removeSocialItem(index)" class="btn btn-small btn-danger">Supprimer</button>
+          </div>
+          
+          <button @click="addSocialItem" class="btn btn-small btn-secondary">Ajouter un réseau social</button>
+        </div>
       </div>
     </div>
   </div>
@@ -320,6 +355,10 @@ const contents = reactive({
     phone: '',
     email: '',
     hours: ''
+  },
+  social: {
+    title: '',
+    items: []
   }
 })
 
@@ -512,6 +551,19 @@ const addPrestationItem = () => {
 
 const removePrestationItem = (index) => {
   contents.prestations.items.splice(index, 1)
+}
+
+// Fonctions pour gérer les réseaux sociaux
+const addSocialItem = () => {
+  contents.social.items.push({
+    name: 'Nouveau réseau',
+    url: 'https://',
+    icon: 'link'
+  })
+}
+
+const removeSocialItem = (index) => {
+  contents.social.items.splice(index, 1)
 }
 
 // Charger les contenus au montage si authentifié
