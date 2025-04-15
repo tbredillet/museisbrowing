@@ -156,5 +156,30 @@
     "phone": "0785843078",
     "email": "musemp39@gmail.com",
     "hours": "SUR RENDEZ-VOUS\nLundi - Vendredi: 9h - 19h\nSamedi: 10h - 18h\nDimanche: Fermé"
+  },
+  "social": {
+    "title": "Réseaux Sociaux",
+    "items": [
+      {
+        "name": "Facebook",
+        "url": "https://www.facebook.com/muse_is_browing",
+        "icon": "facebook"
+      },
+      {
+        "name": "Instagram",
+        "url": "https://www.instagram.com/muse_is_browing/",
+        "icon": "instagram"
+      },
+      {
+        "name": "TikTok",
+        "url": "https://www.tiktok.com/@muse_is_browing",
+        "icon": "tiktok"
+      },
+      {
+        "name": "Email",
+        "url": "mailto:musemp39@gmail.com",
+        "icon": "envelope"
+      }
+    ]
   }
 }
