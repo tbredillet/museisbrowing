@@ -1,23 +1,71 @@
 {
   "hero": {
-    "title": "Maison du Sourcil ! ",
+    "title": "Maison du Sourcil",
     "subtitle": "Révélez votre beauté naturelle avec nos services de soin des sourcils sur mesure",
     "button": "Prendre rendez-vous"
   },
   "presentation": {
     "title": "Bienvenue chez Muse",
-    "text1": "Chez Muse, nous sommes passionnés par l'art de sublimer votre regard à travers des sourcils parfaitement dessinés. Muse a pour mission d’apporter une solution à chaque type de sourcils. Notre salon, situé au cœur de la ville, est un espace dédié à votre beauté et votre bien-être.",
-    "text2": "Les sourcils fins, clairsemés, asymétriques, ondulés, indisciplinés peuvent être domptés à l’aide d’un browlift (permanente des sourcils) et/ou d’une teinture hybride (efficace pour teinter la peau et les poils). ",
-    "text3": "Pour les clientes atteintes d’alopécie ou présentant un manque de pilosité sur la zone sourcilière, le microshading est la meilleure option. Il s’agit d’une technique de maquillage permanent qui permet de créer une zone ombragé qui se font naturellement à la peau. Le rendu est semblable à du maquillage."
+    "text1": "Chez Muse, nous sommes passionnés par l'art de sublimer votre regard. Muse a pour mission d’apporter une solution à chaque type de sourcils. Notre salon, situé au cœur de la ville de Lons-le-Saunier, est un espace dédié à votre beauté et votre bien-être.",
+    "text2": "Les sourcils fins, clairsemés, asymétriques, ondulés, indisciplinés peuvent être domptés par un browlift et/ou par une teinture hybride. \nLe browlift est une permanente des sourcils permettant de donner un look structuré à vos sourcils. La teinture hybride peut être utilisée seule ou après un browlift pour un rendu plus sophistiqué. La gamme hybride est efficace pour teindre les poils et la peau.",
+    "text3": "Pour les clientes atteintes d’alopécie ou présentant un manque de pilosité sur la zone sourcilière, le microshading est la meilleure option. Il s’agit d’une technique de maquillage permanent qui permet de créer une zone ombragée qui se font naturellement à la peau. Le rendu est semblable à du maquillage."
   },
   "prestations": {
     "title": "Nos Prestations et Tarifs",
     "items": [
       {
-        "title": "Restructuration des Sourcils",
+        "title": "Restructuration des Sourcils à la pince",
         "description": "Redéfinition complète de la ligne des sourcils selon votre morphologie",
-        "price": "35€",
+        "price": "15€",
         "duration": "30 min"
+      },
+      {
+        "title": "Browlift",
+        "description": "Permanente des sourcils + Restructuration",
+        "price": "40€",
+        "duration": "1h"
+      },
+      {
+        "title": "Browlift Signature",
+        "description": "Permanente des sourcils + Restructuration + Teinture des poils et de la peau",
+        "price": "50€",
+        "duration": "1h15/30"
+      },
+      {
+        "title": "Teinture hybride",
+        "description": "Restructuration + Teinture des poils et de la peau",
+        "price": "20€",
+        "duration": "30 min"
+      },
+      {
+        "title": "Création microshading",
+        "description": "Maquillage permanent des sourcils",
+        "price": "200€",
+        "duration": "2h"
+      },
+      {
+        "title": "Retouche fixatrice microshading",
+        "description": "Dans les 2 premiers mois qui suivent la création",
+        "price": "60€",
+        "duration": "1h30 min"
+      },
+      {
+        "title": "Retouche simple microshading",
+        "description": "3 à 9 mois après la création",
+        "price": "100€",
+        "duration": "1h30 min"
+      },
+      {
+        "title": "Retouche annuelle microshading",
+        "description": "9 à 18 mois après la création",
+        "price": "140€",
+        "duration": "1h30 min"
+      },
+      {
+        "title": "Retouche + 18 mois",
+        "description": "",
+        "price": "180€",
+        "duration": "2h"
       }
     ]
   },
@@ -25,28 +73,60 @@
     "title": "Questions Fréquentes",
     "questions": [
       {
-        "question": "Combien de temps dure une séance ?",
-        "answer": "La durée varie selon le service choisi. Une restructuration simple prend environ 30 minutes, tandis qu'un microblading peut durer jusqu'à 2 heures pour la première séance."
+        "question": "Quelle est la tenue moyenne du browlift?",
+        "answer": "La tenue moyenne d'un browlift varie entre un mois et un mois et demi. "
       },
       {
-        "question": "À quelle fréquence dois-je entretenir mes sourcils ?",
-        "answer": "Pour un entretien optimal, nous recommandons une visite toutes les 4 à 6 semaines. Cela peut varier selon la vitesse de repousse de vos poils et le résultat souhaité."
+        "question": "A quelle fréquence est-il nécessaire de renouveler la prestation browlift pour un résultat optimal?",
+        "answer": "Pour un entretien optimal, nous recommandons une visite toutes les 6 à 8 semaines. Cela peut varier selon la vitesse de repousse de vos poils et le résultat souhaité."
       },
       {
         "question": "Le microblading est-il douloureux ?",
-        "answer": "Nous appliquons une crème anesthésiante avant la procédure pour minimiser l'inconfort. La plupart des clients décrivent une sensation de légère pression plutôt qu'une douleur vive."
+        "answer": "Nous appliquons une crème anesthésiante au début de la procédure pour minimiser l'inconfort. La plupart des clients décrivent une sensation de légère pression plutôt qu'une douleur vive."
       },
       {
-        "question": "Comment prendre soin de mes sourcils après une séance ?",
-        "answer": "Nous vous fournirons des instructions détaillées selon le service reçu. En général, il est recommandé d'éviter l'eau, les produits cosmétiques et l'exposition au soleil pendant les premières 24-48 heures."
+        "question": "Comment prendre soin de mes sourcils après une séance browlift ?",
+        "answer": "Il est recommandé d'éviter l'eau, les produits cosmétiques et l'exposition au soleil pendant les premières 24-48 heures."
       },
       {
         "question": "Proposez-vous des consultations gratuites ?",
         "answer": "Oui, nous offrons une consultation gratuite de 15 minutes pour discuter de vos attentes et vous recommander les services les plus adaptés à votre visage et à vos besoins."
       },
       {
-        "question": "Nouvelle question",
-        "answer": "Nouvelle réponse"
+        "question": "Quelle est la tenue moyenne de la teinture hybride sur la peau? sur les poils? ",
+        "answer": "En moyenne, la tenue de la teinture hybride varie entre un mois et un mois et demi sur les poils et une semaine sur le peau."
+      },
+      {
+        "question": "Y-a-t-il de possibles réactions suite à la teinture hybride? ",
+        "answer": "Malgré qu'elles soient rares, des réactions allergiques sont possibles. Ce pourquoi, nous préconisons d'effectuer un test de teinture 48h avant la prestation afin de s'assurer que la teinture ne créer aucune réaction."
+      },
+      {
+        "question": "Y-a-t-il des contre-indications au maquillage permanent? ",
+        "answer": "En effet, pour effectuer un maquillage permanent il faudra s'assurer que la cliente ne présente aucune contre-indication à la pratique. La liste vous sera communiqué lors de notre prise de contact."
+      },
+      {
+        "question": "Y-a-t-il des contre-indications au browlift et/ou la teinture hybride?",
+        "answer": "En effet, si la cliente à fait des UV, un peeling chimique ou un maquillage permanent la prestation ne sera pas réalisable dans l'immédiat. Il en est de même pour les personnes ayant la peau fragile, étant enceinte ou allaitante."
+      },
+      {
+        "question": "Combien de temps dure la cicatrisation du microshading? ",
+        "answer": "La cicatrisation du microshading dure environ 6 semaines pendant lesquelles les sourcils passent par de différentes phases. Au cours des 2 premières semaines les croûtes se forment et tombent puis au cours des 4 semaines suivantes le pigment remonte tranquillement à la surface de la peau."
+      },
+      {
+        "question": "Combien de temps faut-il attendre avant de faire sa retouche fixatrice microshading?",
+        "answer": "Il faut impérativement attendre la fin de la période de cicatrisation avant d'effectuer la retouche fixatrice, à savoir : 6 semaines."
+      },
+      {
+        "question": "Comment se déroule un rendez-vous microshading?",
+        "answer": "Lors d'un rendez-vous microshading, nous consultons ensemble le contenu du consentement éclairé. Puis nous validons ensemble le tracé de votre futur maquillage permanent. Après validation de votre part, nous effectuerons le microshading."
+      },
+      {
+        "question": "Peut-on effectuer des browlift toute l'année?",
+        "answer": "Il est conseillé de faire une pause de 2 mois au courant de l'année."
+      },
+      {
+        "question": "Y-a-t-il besoin de s’épiler avant un browlift? ",
+        "answer": "Non, nous nous occupons de votre restructuration."
       }
     ]
   },
@@ -54,32 +134,27 @@
     "title": "Ce que nos clients disent",
     "items": [
       {
-        "name": "Marie L.",
-        "text": "J'ai enfin trouvé LA spécialiste des sourcils ! Sophie a su exactement comment restructurer mes sourcils pour mettre en valeur mon regard. Je ne vais nulle part ailleurs maintenant !",
+        "name": "Léonie T.",
+        "text": "J’ai réalisé un browlift chez MUSE et je suis sortie très satisfaite ! Sophie est douce et à l’écoute.\nSi vous voulez avoir des beaux sourcils pendant quelques semaines, foncez !",
         "rating": 5
       },
       {
-        "name": "Isabelle D.",
-        "text": "Le microblading réalisé chez Muse is Browing a changé ma vie ! Après avoir perdu mes sourcils suite à une chimiothérapie, j'ai retrouvé confiance en moi. Merci infiniment pour votre professionnalisme et votre bienveillance.",
+        "name": "Léna F.",
+        "text": "Ça fait déjà plusieurs fois que je prend rendez-vous avec Sophie pour faire mon browlift et je ne suis jamais déçue. Mon regard est sublimé à la perfection ! 🤩 Je suis toujours fan du avant/ après ! N’hésitez plus ! 😍",
         "rating": 5
       },
       {
-        "name": "Thomas B.",
-        "text": "Ambiance relaxante, personnel attentif et résultat impeccable. La lamination a donné du volume à mes sourcils clairsemés. Je recommande vivement !",
-        "rating": 5
-      },
-      {
-        "name": "Nouveau client",
-        "text": "Nouveau témoignage",
+        "name": "Juliette Z.",
+        "text": "Sophie a su exactement comment restructurer mes sourcils pour mettre en valeur mon regard. Je ne suis jamais déçue de mes browlift réalisés chez Muse ! Je vous recommande vivement ce salon.",
         "rating": 5
       }
     ]
   },
   "contact": {
     "title": "Contactez-nous",
-    "address": "15 Rue des Beaux Arts\n75006 Paris",
-    "phone": "",
-    "email": "",
-    "hours": "Lundi - Vendredi: 9h - 19h\nSamedi: 10h - 18h\nDimanche: Fermé"
+    "address": "97 Rue du Pont Neuf\n39000 LONS-LE-SAUNIER",
+    "phone": "0785843078",
+    "email": "musemp39@gmail.com",
+    "hours": "SUR RENDEZ-VOUS\nLundi - Vendredi: 9h - 19h\nSamedi: 10h - 18h\nDimanche: Fermé"
   }
 }
