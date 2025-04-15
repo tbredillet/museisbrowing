@@ -21,7 +21,7 @@
   const testimonials = computed(() => $contents?.testimonial?.items || [])
   
   const contactTitle = computed(() => $contents?.contact?.title || "")
-  const contactAddress = computed(() => $contents?.contact?.address?.replace(/\n/g, '<br>') || "")
+  const contactAddress = computed(() => $contents?.contact?.address || "")
   const contactPhone = computed(() => $contents?.contact?.phone || "")
   const contactEmail = computed(() => $contents?.contact?.email || "")
   const contactHours = computed(() => $contents?.contact?.hours || "")
@@ -473,7 +473,7 @@
               <i class="fas fa-map-marker-alt"></i>
               <div>
                 <h3>Adresse</h3>
-                <p v-html="contactAddress"></p>
+                <p v-html="contactAddress.replace(/\n/g, '<br>')"></p>
               </div>
             </div>
             <div class="info-item">
@@ -494,7 +494,7 @@
               <i class="fas fa-clock"></i>
               <div>
                 <h3>Horaires</h3>
-                <p v-html="contactHours.replace(/\n/g, '<br>')" />
+                <p v-html="contactHours.replace(/\n/g, '<br>')"></p>
               </div>
             </div>
             <div class="social-media">
