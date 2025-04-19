@@ -20,8 +20,6 @@
   const testimonialTitle = computed(() => $contents?.testimonial?.title || "")
   const testimonials = computed(() => $contents?.testimonial?.items || [])
   const testimonialGoogleRatingText = computed(() => $contents?.testimonial?.googleRatingText || "4.8/5 basé sur 127 avis Google")
-  const testimonialGoogleReviewLinkText = computed(() => $contents?.testimonial?.googleReviewLinkText || "Voir tous les avis sur Google")
-  const testimonialGoogleReviewLink = computed(() => $contents?.testimonial?.googleReviewLink || "#")
   
   const contactTitle = computed(() => $contents?.contact?.title || "")
   const contactAddress = computed(() => $contents?.contact?.address || "")
@@ -417,8 +415,6 @@
             <i class="fas fa-star-half-alt"></i>
           </div>
           <p class="rating">{{ testimonialGoogleRatingText }}</p>
-          <a v-if="testimonialGoogleReviewLink && testimonialGoogleReviewLink !== '#'" :href="testimonialGoogleReviewLink" class="google-link" target="_blank">{{ testimonialGoogleReviewLinkText }} <i class="fab fa-google"></i></a>
-          <p v-else class="google-link">{{ testimonialGoogleReviewLinkText }} <i class="fab fa-google"></i></p>
         </div>
         <div class="testimonial-slider">
           <!-- Témoignage 1 -->

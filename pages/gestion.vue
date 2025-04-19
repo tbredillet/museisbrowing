@@ -214,15 +214,6 @@
               <input type="text" id="googleRatingText" v-model="contents.testimonial.googleRatingText" class="full-width" />
               <small>Exemple: 4.8/5 basé sur 127 avis Google</small>
             </div>
-            <div class="form-group">
-              <label for="googleReviewLinkText">Sous-sous titre</label>
-              <input type="text" id="googleReviewLinkText" v-model="contents.testimonial.googleReviewLinkText" />
-              <small>Exemple: Voir tous les avis sur Google</small>
-            </div>
-            <div class="form-group">
-              <label for="googleReviewLink">Lien du sous-sous titre (si besoin)</label>
-              <input type="url" id="googleReviewLink" v-model="contents.testimonial.googleReviewLink" />
-            </div>
           </div>
           
           <div v-for="(testimonial, index) in contents.testimonial.items" :key="index" class="testimonial-item">

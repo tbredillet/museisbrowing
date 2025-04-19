@@ -41,8 +41,6 @@
   "testimonial": {
     "title": "Ce que nos clients disent",
     "googleRatingText": "4.8/5 basé sur 127 avis Google",
-    "googleReviewLinkText": "Voir tous les avis sur Google",
-    "googleReviewLink": "https://g.page/r/muse-is-browing/review",
     "items": [
       {
         "name": "Marie L.",
